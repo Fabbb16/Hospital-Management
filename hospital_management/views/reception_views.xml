@@ -1,0 +1,49 @@
+<odoo>
+    <record id="wb_reception_tree_view" model="ir.ui.view">
+        <field name="name">wb.reception.tree.view</field>
+        <field name="model">wb.reception</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="last_name"/>
+                <field name="rec_number"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="wb_reception_form_view" model="ir.ui.view">
+        <field name="name">wb.reception.form.view</field>
+        <field name="model">wb.reception</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="name"/>
+                        <field name="last_name"/>
+                        <field name="b_day"/>
+                        <field name="gender"/>
+                        <field name="rec_number"/>
+                        <field name="work_shift"/>
+                        <field name="api_key"/>
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="wb_reception_action" model="ir.actions.act_window">
+        <field name="name">Reception</field>
+        <field name="res_model">wb.reception</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+                <menuitem id="hospital_menu_root"
+              web_icon="hospital_management,static/description/icon.png"
+                           name="Stafasani Hospital"/>
+
+    <menuitem id="hospital_menu_configuration" name="Configuration" sequence="6"
+              parent="hospital_menu_root"/>
+
+        <menuitem id="wb_reception_menu" name="Reception" parent="hospital_menu_configuration"
+                  action="wb_reception_action" sequence="1"/>
+</odoo>

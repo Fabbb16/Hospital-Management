@@ -1,0 +1,25 @@
+controllers --> 1. /hospital ---> Doktorri vendos 1 pacient ne dhome.
+
+2. /hospital/nurse --> Doktorri vendos 1 nurse ne dhome.
+
+3. /blood --> Doktorri vendos se kush pacient merr gjakun e x-it.
+
+4. /director --> Directors vendosin se kush doctor do shkoje te x pacient.
+
+5. /reception --> Vendos se cili doctor do kryej takimin me pacientin.
+
+6. /reception/doc  --> Vendos se cili doctor do kryeje teste e laboratorit per x pacient.
+
+7. /pharmacy --> Doktorri vendos se ne cilen farmaci blihet vaksina.
+
+8. assign/analysis --> Recepsionisti i ben assign prgj te analizave pacientit.
+
+			!!--GET--!!
+
+9. /appointments ---> Directori sheh tere historikun e appointments
+
+10. /blood/bank ----> Directori sheh tere historine e dhurmmit te gjakut.
+
+11. /all/reception ---> Directori sheh tere personat e recepsionit
+
+12. /patient/tests ---> Directori sheh tere historine e testeve te pacienteve

@@ -1,0 +1,49 @@
+<odoo>
+    <record id="wb_blood_tree_view" model="ir.ui.view">
+        <field name="name">wb.blood.tree.view</field>
+        <field name="model">wb.blood</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="last_name"/>
+                <field name="date"/>
+                <field name="lab_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="'wb_blood_form_view" model="ir.ui.view">
+        <field name="name">wb.blood.form.view</field>
+        <field name="model">wb.blood</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="name"/>
+                        <field name="last_name"/>
+                        <field name="date"/>
+                        <field name="blood_group"/>
+                        <field name="patient_id"/>
+                        <field name="lab_id"/>
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="wb_blood_action" model="ir.actions.act_window">
+        <field name="name">Blood Bank</field>
+        <field name="res_model">wb.blood</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+                <menuitem id="hospital_menu_root"
+              web_icon="hospital_management,static/description/icon.png"
+                           name="Stafasani Hospital"/>
+
+    <menuitem id="hospital_menu_configuration" name="Configuration" sequence="6"
+              parent="hospital_menu_root"/>
+
+        <menuitem id="wb_blood_menu" name="Blood Bank" parent="hospital_menu_configuration"
+                  action="wb_blood_action" sequence="1"/>
+</odoo>

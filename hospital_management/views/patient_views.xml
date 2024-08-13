@@ -1,0 +1,142 @@
+<odoo>
+    <!-- Root Menu Definition -->
+    <data>
+        <!-- Form View Definition -->
+        <record id="wb_patient_view_form" model="ir.ui.view">
+            <field name="name">wb.patient.form</field>
+            <field name="model">wb.patient</field>
+            <field name="arch" type="xml">
+                <form string="Patient">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="last_name"/>
+                                <field name="date_of_birth"/>
+                                <field name="phone"/>
+                            </group>
+                            <group>
+                                <field name="blood_group"/>
+                                <field name="gender"/>
+                                <field name="marital_status"/>
+                                <field name="doctor_id"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Family and Insurance">
+                                <group>
+                                    <field name="ethnic_group"/>
+                                    <field name="genetic_risks"/>
+                                    <field name="family_ids"/>
+                                </group>
+                            </page>
+                            <page string="Life Style">
+                                <group>
+                                    <group>
+                                        <field name="exercises"/>
+                                    </group>
+                                    <group>
+                                        <field name="day_sleep"/>
+                                        <field name="sleep_hours"/>
+                                    </group>
+                                    <group>
+                                        <field name="meals_per_day"/>
+                                        <field name="diet"/>
+                                    </group>
+                                    <group>
+                                        <field name="coffee"/>
+                                        <field name="soft_drinks"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Addiction">
+                                <group>
+                                    <group>
+                                        <field name="smoker"/>
+                                        <field name="ex_smoker"/>
+                                        <field name="passive_smoker"/>
+                                    </group>
+                                    <group>
+                                        <field name="alcoholic"/>
+                                        <field name="ex_alcoholic"/>
+                                    </group>
+                                    <group>
+                                        <field name="drug_user"/>
+                                        <field name="ex_drug"/>
+                                        <field name="iv_drug"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Sexuality">
+                                <group>
+                                    <group>
+                                        <field name="orientation"/>
+                                        <field name="age_encounter"/>
+                                    </group>
+                                    <group>
+                                        <field name="no_partners"/>
+                                        <field name="contraceptive_methods"/>
+                                    </group>
+                                    <group>
+                                        <field name="oral_sex"/>
+                                        <field name="anal_sex"/>
+                                        <field name="prostitute"/>
+                                        <field name="sex_with_prostitute"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Socioeconomic">
+                                <group>
+                                    <field name="socioeconomic"/>
+                                    <field name="education"/>
+                                    <field name="house"/>
+                                    <field name="occupation"/>
+                                    <field name="work_home"/>
+                                    <field name="hours_out"/>
+                                </group>
+                            </page>
+                            <page string="Analysis">
+                                <group>
+                                    <field name="file" filename="file_name"/>
+                                    <field name="file_name" invisible="1"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Tree View Definition -->
+        <record id="wb_patient_view_tree" model="ir.ui.view">
+            <field name="name">wb.patient.tree</field>
+            <field name="model">wb.patient</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="last_name"/>
+                    <field name="date_of_birth"/>
+                    <field name="phone"/>
+                    <field name="blood_group"/>
+                    <field name="gender"/>
+                    <field name="marital_status"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Action Definition -->
+        <record id="wb_patient_action" model="ir.actions.act_window">
+            <field name="name">Patients</field>
+            <field name="res_model">wb.patient</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menu Item Definition -->
+        <menuitem id="hospital_menu_root"
+                  web_icon="hospital_management,static/description/icon.png"
+                  name="Stafasani Hospital"/>
+        <menuitem id="wb_patient_menu" name="Patients" parent="hospital_menu_root"
+                  action="wb_patient_action" sequence="1"/>
+        <menuitem id="wb_patient_sub_menu" parent="wb_patient_menu" name="Lista Pacienteve"/>
+    </data>
+</odoo>

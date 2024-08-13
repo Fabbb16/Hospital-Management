@@ -1,0 +1,53 @@
+<odoo>
+    <data>
+        <record id="wb_nurse_tree_view" model="ir.ui.view">
+            <field name="name">wb.nurse.tree.view</field>
+            <field name="model">wb.nurse</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="last_name"/>
+                    <field name="day_of_birth"/>
+                    <field name="gender"/>
+                    <field name="emergency_number"/>
+                    <field name="doctor_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="wb_nurse_form_view" model="ir.ui.view">
+            <field name="name">wb.nurse.form.view</field>
+            <field name="model">wb.nurse</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="last_name"/>
+                            <field name="day_of_birth"/>
+                            <field name="gender"/>
+                            <field name="emergency_number"/>
+                            <field name="doctor_id"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="wb_nurse_action" model="ir.actions.act_window">
+            <field name="name">Nurse</field>
+            <field name="res_model">wb.nurse</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+                    <menuitem id="hospital_menu_root"
+              web_icon="hospital_management,static/description/icon.png"
+                           name="Stafasani Hospital"/>
+
+    <menuitem id="hospital_menu_configuration" name="Configuration" sequence="6"
+              parent="hospital_menu_root"/>
+
+        <menuitem id="wb_nurse_menu" name="Nurse" parent="hospital_menu_configuration"
+                  action="wb_nurse_action" sequence="1"/>
+    </data>
+</odoo>

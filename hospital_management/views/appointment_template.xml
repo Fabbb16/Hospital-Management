@@ -1,0 +1,31 @@
+<odoo>
+    <data>
+        <template id="appointment_template" name="Appointment Template">
+            <t t-call="website.layout">
+                <section class="appointment-form-section">
+                    <div class="container">
+                        <h2>Patient Booking</h2>
+                        <form action="/appointment/create" method="post">
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                            <div class="form-group">
+                                <label for="date">Booking Date</label>
+                                <input type="date" class="form-control" name="date" id="date"/>
+                            </div>
+<!--                            <div class="container">-->
+<!--                                <label for="file">Patient Analysis</label>-->
+<!--                                <input type="file" class="form-control" name="file" id="file"/>-->
+<!--                            </div>-->
+                            <div class="form-group">
+                                <label for="reason">Reason For Visit</label>
+                                <textarea class="form-control" name="reason" id="reason"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </t>
+        </template>
+    </data>
+</odoo>

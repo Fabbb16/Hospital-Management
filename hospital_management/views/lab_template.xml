@@ -1,0 +1,35 @@
+<odoo>
+    <data>
+        <template id="lab_template" name="Laboratory">
+            <t t-call="website.layout">
+                <div class="container">
+                    <h1>Lab Tests</h1>
+                    <t t-if="tests">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Test Name</th>
+                                    <th>Test Type</th>
+                                    <th>Price</th>
+                                    <th>Currency</th>
+                                    <th>Lab</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="tests" t-as="test">
+                                    <tr>
+                                        <td><t t-esc="test.test_name"/></td>
+                                        <td><t t-esc="dict(test._fields['type'].selection).get(test.type)"/></td>
+                                        <td><t t-esc="test.price"/></td>
+                                        <td><t t-esc="test.currency_id.name"/></td>
+                                        <td><t t-esc="test.lab_id.name"/></td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </t>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

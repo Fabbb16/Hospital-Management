@@ -1,0 +1,51 @@
+<odoo>
+    <!-- Tree View -->
+    <record id="wb_app_tree_view" model="ir.ui.view">
+        <field name="name">wb.app.tree.view</field> <!-- Corrected 'filed' to 'field' -->
+        <field name="model">wb.app</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="patient_id"/>
+                <field name="date"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="wb_app_form_view" model="ir.ui.view">
+        <field name="name">wb.app.form.view</field>
+        <field name="model">wb.app</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="patient_id"/>
+                        <field name="date"/>
+                        <field name="reason"/>
+                        <field name="doctor_id"/>
+<!--                        <field name="file"/>-->
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="wb_app_action" model="ir.actions.act_window">
+        <field name="name">Appointment</field>
+        <field name="res_model">wb.app</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu Item -->
+        <menuitem id="hospital_menu_appointment" name="Appointment"
+              parent="hospital_menu_root"
+              sequence="2"/>
+
+            <menuitem id="appointment_menu_patient" name="Patient"
+              parent="hospital_menu_appointment"
+              sequence="1"/>
+
+    <menuitem id="patient_appointment_menu" name="Appointment"
+              parent="appointment_menu_patient" action="wb_app_action" sequence="5"/>
+</odoo>

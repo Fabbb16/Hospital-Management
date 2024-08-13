@@ -1,0 +1,44 @@
+<odoo>
+    <data>
+        <template id="blood_template" name="Blood Template">
+            <t t-call="website.layout">
+                <section class="blood-form-section">
+                    <div class="container">
+                        <h2>Blood Bank</h2>
+                        <form action="/blood/create" method="post">
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                            <div class="form-group">
+                                <label for="name">Donor Name</label>
+                                <input type="char" class="form-control" name="name" id="name"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="last_name">Donor Last Name</label>
+                                <input type="char" class="form-control" name="last_name" id="last_name"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="date">Donation Date</label>
+                                <input type="date" class="form-control" name="date" id="date"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="blood_group">Blood Group</label>
+                                <select class="form-control" name="blood_group" id="blood_group" required="required">
+                                    <option value="A+">A+</option>
+                                    <option value="A-">A-</option>
+                                    <option value="B+">B+</option>
+                                    <option value="B-">B-</option>
+                                    <option value="AB+">AB+</option>
+                                    <option value="AB-">AB-</option>
+                                    <option value="O+">O+</option>
+                                    <option value="O-">O-</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </t>
+        </template>
+    </data>
+</odoo>

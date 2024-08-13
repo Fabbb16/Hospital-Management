@@ -1,0 +1,55 @@
+<odoo>
+    <record id="wb_labs_tree_view" model="ir.ui.view">
+        <field name="name">wb.labs.tree.view</field>
+        <field name="model">wb.labs</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="mobile"/>
+                <field name="address"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="wb_labs_form_view" model="ir.ui.view">
+        <field name="name">wb.labs.form.view</field>
+        <field name="model">wb.labs</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="name"/>
+                        <field name="mobile"/>
+                        <field name="email"/>
+                        <field name="address"/>
+                        <field name="type_of_lab"/>
+                    </group>
+                </group>
+                <notebook>
+                    <page string="Additional Information">
+                        <group>
+                            <field name="notes"/>
+                        </group>
+                    </page>
+                </notebook>
+            </form>
+        </field>
+    </record>
+
+    <record id="wb_labs_action" model="ir.actions.act_window">
+        <field name="name">Labs</field>
+        <field name="res_model">wb.labs</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+            <menuitem id="hospital_menu_root"
+              web_icon="hospital_management,static/description/icon.png"
+                           name="Stafasani Hospital"/>
+
+        <menuitem id="hospital_menu_infrastructure" name="Infrastructure"
+              parent="hospital_menu_root" sequence="4"/>
+
+
+    <menuitem id="wb_labs_menu" name="Labs" parent="hospital_menu_infrastructure"
+                  action="wb_labs_action" sequence="1"/>
+</odoo>

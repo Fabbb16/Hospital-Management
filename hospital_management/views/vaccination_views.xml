@@ -1,0 +1,54 @@
+<odoo>
+    <record id="wb_vaccination_tree_view" model="ir.ui.view">
+        <field name="name">wb.vaccination.tree.view</field>
+        <field name="model">wb.vaccination</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="patient_id"/>
+                <field name="date"/>
+                <field name="currency_id"/>
+                <field name="price"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="wb_vaccination_form_view" model="ir.ui.view">
+        <field name="name">wb.vaccination.form.view</field>
+        <field name="model">wb.vaccination</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="patient_id"/>
+                        <field name="vaccine_id"/>
+                        <field name="currency_id"/>
+                        <field name="price"/>
+                    </group>
+                    <group>
+                        <field name="dose"/>
+                        <field name="date"/>
+                        <field name="certificate"/>
+                        <field name="recurring_vaccine"/>
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="wb_vaccination_action" model="ir.actions.act_window">
+        <field name="name">Vaccination</field>
+        <field name="res_model">wb.vaccination</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+            <menuitem id="hospital_menu_root"
+              web_icon="hospital_management,static/description/icon.png"
+                           name="Stafasani Hospital"/>
+
+            <menuitem id="appointment_menu_patient" name="Patient"
+              parent="hospital_menu_appointment"
+              sequence="1"/>
+
+    <menuitem id="wb_vaccination_menu" name="Vaccination"
+              parent="appointment_menu_patient" action="wb_vaccination_action" sequence="5"/>
+</odoo>

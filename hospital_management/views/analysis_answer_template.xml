@@ -1,0 +1,39 @@
+<odoo>
+    <data>
+        <template id="answer_template" name="Answer Template">
+            <t t-call="website.layout">
+                <section class="analysis-form-section">
+                    <div class="container">
+                        <h2>Analysis Answer</h2>
+                        <form action="/answer/create" method="post" enctype="multipart/form-data">
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                            <div class="form-group">
+                                <label for="patient_id">Patient</label>
+                                <select class="form-control" name="patient_id" id="patient_id" required="required">
+                                    <option value="" disabled="disabled" selected="selected">Select a Patient</option>
+                                    <!-- Fetching the list of patients -->
+                                    <t t-foreach="request.env['wb.patient'].sudo().search([])" t-as="patient">
+                                        <option t-att-value="patient.id">
+                                            <t t-esc="patient.name"/>
+                                        </option>
+                                    </t>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="file">Patient Analysis File</label>
+                                <input type="file" class="form-control" name="file" id="file" required="required"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <input type="text" class="form-control" name="description" id="description" required="required"/>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </t>
+        </template>
+    </data>
+</odoo>

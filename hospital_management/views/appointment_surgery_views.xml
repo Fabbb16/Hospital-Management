@@ -1,0 +1,46 @@
+<odoo>
+    <record id="wb_surgery_tree_view" model="ir.ui.view">
+        <field name="name">wb.surgery.tree.view</field>
+        <field name="model">wb.surgery</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name_of_the_surgery"/>
+                <field name="operating_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="wb_surgery_form_view" model="ir.ui.view">
+        <field name="name">wb.surgery.form.view</field>
+        <field name="model">wb.surgery</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="name_of_the_surgery"/>
+                        <field name="operating_doctor"/>
+                        <field name="operating_date"/>
+                        <field name="duration"/>
+                        <field name="patient"/>
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="wb_surgery_action" model="ir.actions.act_window">
+        <field name="name">Surgery</field>
+        <field name="res_model">wb.surgery</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+        <menuitem id="hospital_menu_appointment" name="Appointment"
+              parent="hospital_menu_root"
+              sequence="2"/>
+        <menuitem id="appointment_menu_doctor" name="Doctor"
+              parent="hospital_menu_appointment"
+              sequence="2"/>
+    <menuitem id="wb_surgery_menu" name="Surgery"
+              parent="appointment_menu_doctor" action="wb_surgery_action" sequence="5"/>
+
+</odoo>

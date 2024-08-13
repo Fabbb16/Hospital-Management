@@ -1,0 +1,50 @@
+<odoo>
+    <record id="wb_lab_tree_view" model="ir.ui.view">
+        <field name="name">wb.lab.tree.view</field>
+        <field name="model">wb.lab</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="test_name"/>
+                <field name="currency_id"/>
+                <field name="price"/>
+                <field name="lab_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="wb_lab_form_view" model="ir.ui.view">
+        <field name="name">wb.lab.form.view</field>
+        <field name="model">wb.lab</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="test_name"/>
+                        <field name="lab_id"/>
+                        <field name="results"/>
+                        <field name="type"/>
+                        <field name="currency_id"/>
+                        <field name="price"/>
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="wb_lab_action" model="ir.actions.act_window">
+        <field name="name">Lab Tests</field>
+        <field name="res_model">wb.lab</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+   <menuitem id="hospital_menu_root"
+              web_icon="hospital_management,static/description/icon.png"
+                           name="Stafasani Hospital"/>
+
+        <menuitem id="hospital_menu_laboratory" name="Laboratory"
+              parent="hospital_menu_root"
+              sequence="3"/>
+
+        <menuitem id="wb_lab_menu" name="Lab Test" parent="hospital_menu_laboratory"
+                      action="wb_lab_action" sequence="1"/>
+</odoo>

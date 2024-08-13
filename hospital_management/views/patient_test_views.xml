@@ -1,0 +1,46 @@
+<odoo>
+    <record id="patient_test_tree_view" model="ir.ui.view">
+        <field name="name">patient.test.tree.view</field>
+        <field name="model">patient.test</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="patient_id"/>
+                <field name="date"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="patient_test_form_view" model="ir.ui.view">
+        <field name="name">patient.test.form.view</field>
+        <field name="model">patient.test</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="patient_id"/>
+                        <field name="doctor_id"/>
+                        <field name="date"/>
+                        <field name="lab_test_id"/>
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="patient_test_action" model="ir.actions.act_window">
+        <field name="name">Patients Test</field>
+        <field name="res_model">patient.test</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+        <menuitem id="hospital_menu_root"
+              web_icon="hospital_management,static/description/icon.png"
+                           name="Stafasani Hospital"/>
+
+        <menuitem id="hospital_menu_laboratory" name="Laboratory"
+              parent="hospital_menu_root"
+              sequence="3"/>
+
+        <menuitem id="patient_test_menu" name="Patient Test" parent="hospital_menu_laboratory"
+                      action="patient_test_action" sequence="1"/>
+</odoo>

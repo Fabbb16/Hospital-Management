@@ -1,0 +1,31 @@
+<odoo>
+    <data>
+        <template id="vaccination_template" name="Vaccination">
+            <t t-call="website.layout">
+                <section class="vaccination-form-section">
+                    <div class="container">
+                        <h2>Vaccination Appointment</h2>
+                        <form action="/vaccination/create" method="post">
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                            <div class="form-group">
+                                <label for="vaccine_id">Vaccine</label>
+                                <select class="form-control" name="vaccine_id" id="vaccine_id">
+                                    <t t-foreach="vaccines" t-as="vaccine">
+                                        <option t-att-value="vaccine.id"><t t-esc="vaccine.name"/></option>
+                                    </t>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="date">Vaccination Date</label>
+                                <input type="date" class="form-control" name="date" id="date"/>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </t>
+        </template>
+    </data>
+</odoo>

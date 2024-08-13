@@ -1,0 +1,81 @@
+<odoo>
+    <data>
+<!--        Tree view-->
+        <record id="wb_doctor_tree_view" model="ir.ui.view">
+            <field name="name">wb.doctor.tree.view</field>
+            <field name="model">wb.doctor</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="last_name"/>
+                    <field name="department"/>
+                    <field name="phone"/>
+                </tree>
+            </field>
+        </record>
+
+<!--        Form view-->
+        <record id="wb_doctor_form_view" model="ir.ui.view">
+            <field name="name">wb.doctor.form.view</field>
+            <field name="model">wb.doctor</field>
+            <field name="arch" type="xml">
+                <form string="Doctor">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="last_name"/>
+                                <field name="date_of_birth"/>
+                            </group>
+                            <group>
+                                <field name="department"/>
+                                <field name="phone"/>
+                                <field name="email"/>
+                                <field name="api_key"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Additional Info">
+                                <group>
+                                    <field name="gender"/>
+                                    <field name="notes"/>
+                                    <field name="photo"/>
+                                </group>
+                            </page>
+                            <page string="Professional Information">
+                                <group>
+                                    <field name="qualification"/>
+                                    <field name="specialization"/>
+                                    <field name="years_of_experience"/>
+                                </group>
+                            </page>
+                            <page string="Work Schedule">
+                                <group>
+                                    <field name="working_days"/>
+                                    <field name="working_hours"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+<!--        Action Definition-->
+        <record id="wb_doctor_action" model="ir.actions.act_window">
+            <field name="name">Doctor</field>
+            <field name="res_model">wb.doctor</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+<!--        Menu item Definition-->
+        <menuitem id="hospital_menu_root"
+              web_icon="hospital_management,static/description/icon.png"
+                           name="Stafasani Hospital"/>
+
+        <menuitem id="wb_doctor_menu" name="Doctors" parent="hospital_menu_root"
+                  action="wb_doctor_action" sequence="1"/>
+    </data>
+</odoo>
